@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AxeAnimation
+  m_Name: Right Attack
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -532,4 +532,11 @@ AnimationClip:
     flags: 0
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.5
+    functionName: Attack
+    data: 
+    objectReferenceParameter: {fileID: 3124183010121346747, guid: e372613f29e62004185511716293b7ce, type: 3}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
