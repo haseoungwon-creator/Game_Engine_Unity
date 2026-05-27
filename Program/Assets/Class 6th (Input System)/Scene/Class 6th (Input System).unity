@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 97637a2a763b7f24b8da4e139e4144ca, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -263,7 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5497420b81e8114ca0d6786b4c4c713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::character
-  go: 0
+  direction: {x: 0, y: 0, z: 0}
+  speed: 120
 --- !u!1001 &1717999443
 PrefabInstance:
   m_ObjectHideFlags: 0
