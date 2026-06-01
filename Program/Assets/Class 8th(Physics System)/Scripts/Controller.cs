@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Controller : MonoBehaviour
 {
     [SerializeField] Rigidbody rigidbody;
     [SerializeField] Vector3 direction;
-    [SerializeField] float speed;
+    [SerializeField] float force;
+    [SerializeField] ForceMode forceMode;
     void Start()
     {
+
+        forceMode = ForceMode.Force;
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -17,6 +20,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
         direction.z = Input.GetAxisRaw("Vertical");
 
         direction.Normalize();
+
+
+    }
+
+    public void Soar()
+    {
+        forceMode = ForceMode.Impulse;
     }
 
     private void FixedUpdate()
@@ -37,12 +47,39 @@ public class NewMonoBehaviourScript : MonoBehaviour
         // ForceMode.VelocityChange(순간적인 속도 변화)
         // 무게(m)과 시간(t)을 모두 무시하며, 입력란 벡터 값 자체가 객체의 다음
         // 프레임 속도로 변화량이 되는 것입니다.
+        if(forceMode == ForceMode.Impulse)
+        {
 
+            rigidbody.AddForce(Vector3.up * force, ForceMode.Impulse);
+
+            forceMode = ForceMode.Force;
+
+            return;
+        }
 
         //rigidbody.AddForce(direction * speed, ForceMode.Impulse);
-        rigidbody.AddForce(direction * speed, ForceMode.Force);
+        rigidbody.AddForce(direction * force, ForceMode.Force);
         //rigidbody.AddForce(direction * speed, ForceMode.Acceleration);
         //rigidbody.AddForce(direction * speed, ForceMode.VelocityChange);
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Barrier"))
+        {
+            Debug.Log("OnCollisionEnter");
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        Debug.Log("OnCollisionStay");
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("OnCollisionExit");
     }
 }
 

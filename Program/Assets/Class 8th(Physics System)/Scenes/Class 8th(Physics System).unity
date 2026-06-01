@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 161646266}
   m_Layer: 0
   m_Name: Other Sphere
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -664,9 +664,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26a27ec3d5b8584a912d3adcaa5e41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  rigidbody: {fileID: 0}
+  rigidbody: {fileID: 1793296090}
   direction: {x: 0, y: 0, z: 0}
-  speed: 0.1
+  force: 10
+  forceMode: 0
 --- !u!1 &2046047066
 GameObject:
   m_ObjectHideFlags: 0
